@@ -6,265 +6,311 @@
 <title>Daily AI News — 05/06/2026</title>
 <style>
   :root{
-    --bg:#0b0e14; --panel:#141925; --panel2:#1b2230; --border:#262f40;
-    --text:#e6e9ef; --muted:#9aa6b8; --accent:#6ea8fe; --accent2:#8b7cf6;
-    --green:#4fd6a8; --tag:#0e1622;
+    --bg:#0b0f17; --card:#131a26; --card2:#0f1521; --txt:#e6edf3; --muted:#9aa7b8;
+    --accent:#6ea8fe; --accent2:#7c5cff; --line:#1f2a3a;
   }
   *{box-sizing:border-box}
   body{
-    margin:0; background:linear-gradient(180deg,#0b0e14,#0d1118 40%,#0b0e14);
-    color:var(--text); font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    line-height:1.6; font-size:16px; padding:0 16px;
+    margin:0; background:radial-gradient(1200px 600px at 80% -10%,#152037 0,transparent 60%),var(--bg);
+    color:var(--txt); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.6; -webkit-font-smoothing:antialiased;
   }
-  .wrap{max-width:880px; margin:0 auto; padding:32px 0 64px}
-  header{
-    border-bottom:1px solid var(--border); padding-bottom:20px; margin-bottom:24px;
+  .wrap{max-width:880px; margin:0 auto; padding:28px 18px 60px}
+  header.top{
+    display:flex; flex-direction:column; gap:6px; padding-bottom:14px; border-bottom:1px solid var(--line);
   }
-  .brand{display:flex; align-items:baseline; gap:14px; flex-wrap:wrap}
-  h1{
-    font-size:30px; margin:0; letter-spacing:-.5px;
-    background:linear-gradient(90deg,var(--accent),var(--accent2));
-    -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+  .brand{display:flex; align-items:center; gap:12px; flex-wrap:wrap}
+  h1{font-size:30px; margin:0; letter-spacing:-.4px;
+     background:linear-gradient(90deg,#8fd0ff,#7c5cff); -webkit-background-clip:text; background-clip:text; color:transparent}
+  .date{font-size:15px; color:var(--muted); font-weight:600}
+  .sub{color:var(--muted); font-size:13px}
+
+  .tts-bar{display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin:16px 0 6px}
+  .tts-btn{
+    background:linear-gradient(90deg,var(--accent),var(--accent2)); color:#0a0e16; border:none;
+    padding:9px 16px; border-radius:999px; font-weight:700; font-size:14px; cursor:pointer;
+    box-shadow:0 2px 12px rgba(124,92,255,.25); transition:transform .08s ease,filter .15s ease;
   }
-  .date{color:var(--muted); font-size:15px; font-weight:600}
-  .sub{color:var(--muted); font-size:14px; margin-top:6px}
+  .tts-btn:hover{filter:brightness(1.08)} .tts-btn:active{transform:translateY(1px)}
+  .tts-note{font-size:13px; color:var(--muted); display:flex; align-items:center; gap:6px}
+  .tts-note select{
+    background:#0f1521; color:var(--txt); border:1px solid var(--line); border-radius:10px;
+    padding:7px 10px; font-size:13px; outline:none; max-width:280px; cursor:pointer;
+  }
+  .tts-note select:focus{border-color:var(--accent)}
+  .tts-warn{color:#fca5a5; font-size:12.5px; font-weight:600}
+
   .tldr{
-    margin-top:20px; background:var(--panel); border:1px solid var(--border);
-    border-left:4px solid var(--accent); border-radius:12px; padding:16px 18px;
+    background:linear-gradient(180deg,#16203a,#111827); border:1px solid #25324a; border-radius:16px;
+    padding:16px 18px; margin:18px 0 26px;
   }
-  .tldr h2{margin:0 0 8px; font-size:15px; color:var(--accent); letter-spacing:.5px; text-transform:uppercase}
-  .tldr p{margin:0; color:#d4dae6; font-size:15px}
-  section{margin-top:34px}
-  section h2.sec{
-    font-size:20px; margin:0 0 16px; padding-bottom:8px;
-    border-bottom:1px solid var(--border);
-  }
+  .tldr h3{margin:0 0 6px; font-size:15px; color:#bcd3ff; letter-spacing:.3px}
+  .tldr p{margin:0; color:#dbe6f2; font-size:15px}
+
+  .sec{margin:30px 0}
+  .sec h2{font-size:21px; margin:0 0 14px; padding-bottom:8px; border-bottom:1px dashed var(--line)}
+
   .card{
-    background:var(--panel); border:1px solid var(--border); border-radius:12px;
-    padding:16px 18px; margin-bottom:14px; transition:border-color .2s;
+    display:flex; gap:14px; background:linear-gradient(180deg,var(--card),var(--card2));
+    border:1px solid var(--line); border-radius:14px; padding:14px; margin-bottom:14px;
+    transition:border-color .15s ease, transform .08s ease;
   }
-  .card:hover{border-color:#36425a}
-  .card a.title{
-    color:#f0f3f8; font-size:17px; font-weight:600; text-decoration:none; line-height:1.4;
+  .card:hover{border-color:#2c3c57; transform:translateY(-1px)}
+  .thumb{
+    width:96px; height:72px; flex:0 0 96px; object-fit:cover; border-radius:10px;
+    background:#0c1220; border:1px solid var(--line);
   }
-  .card a.title:hover{color:var(--accent)}
-  .card .sum{margin:8px 0 0; color:#cfd6e2; font-size:15px}
-  .card .why{
-    margin:10px 0 0; font-size:14px; color:#bcd6c9;
-    background:rgba(79,214,168,.07); border-left:3px solid var(--green);
-    padding:8px 12px; border-radius:0 8px 8px 0;
+  .thumb-fallback{width:56px; height:56px; flex:0 0 56px; object-fit:contain; padding:10px; align-self:center}
+  .body{flex:1; min-width:0}
+  a.title{
+    color:#eaf1ff; font-weight:700; font-size:16px; text-decoration:none; display:inline-block; margin-bottom:4px;
   }
-  .card .why b{color:var(--green); font-weight:600}
-  .tag{
-    display:inline-block; margin-top:12px; font-size:12px; color:var(--muted);
-    background:var(--tag); border:1px solid var(--border); border-radius:20px;
-    padding:3px 11px; letter-spacing:.3px;
+  a.title:hover{color:var(--accent); text-decoration:underline}
+  .sum{margin:4px 0; font-size:14.5px; color:#d6dfeb}
+  .why{margin:6px 0 8px; font-size:13.5px; color:#a9d3b6; background:rgba(56,140,90,.10);
+       border-left:3px solid #3f9d6b; padding:6px 10px; border-radius:0 8px 8px 0}
+  .row{display:flex; align-items:center; gap:10px; flex-wrap:wrap}
+  .tag{font-size:12px; color:#9fb3cd; background:#16202f; border:1px solid var(--line);
+       padding:3px 9px; border-radius:999px}
+  .readbtn{
+    background:linear-gradient(90deg,#1f6feb,#7c5cff); color:#fff; border:none; padding:5px 12px;
+    border-radius:999px; font-size:12.5px; font-weight:700; cursor:pointer;
   }
-  footer{
-    margin-top:42px; padding-top:18px; border-top:1px solid var(--border);
-    color:var(--muted); font-size:13px; display:flex; flex-wrap:wrap; gap:8px 20px; justify-content:space-between;
-  }
-  footer .badge{color:var(--accent2)}
+  .readbtn:hover{filter:brightness(1.1)}
+
+  footer{margin-top:34px; padding-top:16px; border-top:1px solid var(--line); color:var(--muted); font-size:13px}
+  footer b{color:#cdd9e8}
 </style>
 </head>
 <body>
 <div class="wrap">
-  <header>
-    <div class="brand">
-      <h1>Daily AI News</h1>
-      <span class="date">05/06/2026</span>
-    </div>
-    <div class="sub">Bản tin AI hằng ngày · Tổng hợp & tóm tắt tiếng Việt</div>
-    <div class="tldr">
-      <h2>Tổng quan hôm nay</h2>
-      <p>Cuộc đua mô hình nền tảng nóng lên: Microsoft ra mắt loạt mô hình nội bộ MAI (gồm mô hình suy luận MAI-Thinking-1 và mô hình code MAI-Code-1-Flash) tại Build 2026 để giảm phụ thuộc OpenAI, trong khi Claude Opus 4.8 dẫn đầu về coding và computer-use với tính năng Dynamic Workflows điều phối hàng trăm sub-agent. Về kinh doanh, Anthropic nộp hồ sơ IPO bí mật ở định giá 965 tỷ USD — vượt mặt OpenAI lần đầu tiên. Cộng đồng (Reddit/HN) bùng nổ tranh luận phản-AI: từ bài "I'm Tired of Talking to AI" đến đề xuất sở hữu công 50% các hãng AI của Bernie Sanders. Xu hướng kỹ thuật xoay quanh agent suy luận, tiết kiệm token và tool-calling.</p>
-    </div>
+
+  <header class="top">
+    <div class="brand"><h1>Daily AI News</h1><span class="date">05/06/2026</span></div>
+    <div class="sub">Bản tin AI hằng ngày · tóm tắt tiếng Việt · giữ tiêu đề gốc tiếng Anh</div>
   </header>
 
-  <!-- SECTION 1 -->
-  <section>
-    <h2 class="sec">🚀 Mô hình &amp; Sản phẩm mới</h2>
+  <div class="tts-bar"><button id="readAll" class="tts-btn">🔊 Đọc tóm tắt</button><button id="readStop" class="tts-btn">⏹ Dừng</button><label class="tts-note">Giọng: <select id="voicePick"></select></label><span id="voiceWarn" class="tts-warn" style="display:none">⚠ Máy chưa có giọng tiếng Việt — mở bằng Edge hoặc cài giọng VN</span></div>
 
-    <div class="card">
-      <a class="title" href="https://microsoft.ai/news/introducing-mai-thinking-1/" target="_blank" rel="noopener">Microsoft introduces MAI-Thinking-1 (and MAI-Code-1-Flash) at Build 2026</a>
-      <p class="sum">Microsoft công bố loạt mô hình AI nội bộ tại Build 2026: MAI-Thinking-1 — mô hình suy luận đầu tiên của hãng, kiến trúc sparse MoE 35B tham số active, context 256K, huấn luyện hoàn toàn trên dữ liệu cấp phép thương mại (không chưng cất từ OpenAI), đạt 97% AIME 2025 và 94.5% AIME 2026.</p>
-      <p class="why"><b>Vì sao đáng chú ý:</b> Đánh dấu Microsoft chính thức tự chủ về mô hình nền tảng, giảm phụ thuộc vào OpenAI và nhắm tới chi phí token thấp cho nhà phát triển.</p>
-      <span class="tag">microsoft.ai</span>
-    </div>
+  <div class="tldr">
+    <h3>📌 Tổng quan hôm nay</h3>
+    <p>Cuộc đua mô hình mở tăng nhiệt: MiniMax M3 và Qwen3-Coder-Next đẩy giới hạn coding mã nguồn mở, trong khi OpenAI tung loạt mô hình giọng nói thời gian thực và Gemini 3.x tiếp tục dẫn đầu nhiều benchmark. Về kinh doanh, Anthropic nộp hồ sơ IPO ở định giá 965 tỷ USD sau vòng Series H 65 tỷ, còn Microsoft và Google tăng tốc bám đuổi mảng coding. Cộng đồng thì sôi sục quanh tác động của AI tới giáo dục và năng lực con người.</p>
+  </div>
 
-    <div class="card">
-      <a class="title" href="https://thenewstack.io/claude-opus-48-release/" target="_blank" rel="noopener">Claude Opus 4.8 is here: effort controls, dynamic workflows, better honesty</a>
-      <p class="sum">Anthropic phát hành Opus 4.8 (28/5) dẫn đầu Artificial Analysis Intelligence Index (61.4), đạt 69.2% agentic coding và 84% trên Online-Mind2Web (computer-use), giữ nguyên giá so với 4.7. Tính năng Dynamic Workflows cho phép Claude Code điều phối hàng trăm sub-agent song song.</p>
-      <p class="why"><b>Vì sao đáng chú ý:</b> Hiện là mô hình mạnh nhất về coding và điều khiển máy tính, đồng thời giảm hơn 10 lần mức "tự tin thái quá" — bước tiến lớn về độ tin cậy của agent.</p>
-      <span class="tag">thenewstack.io</span>
-    </div>
+  <section class="sec">
+    <h2>🚀 Mô hình & Sản phẩm mới</h2>
 
-    <div class="card">
-      <a class="title" href="https://techcrunch.com/2026/05/19/google-updates-its-gemini-app-to-take-on-chatgpt-and-claude-at-io-2026/" target="_blank" rel="noopener">Google updates Gemini app with Gemini Spark agent and Omni world model</a>
-      <p class="sum">Tại I/O 2026, Google ra mắt Gemini 3.5 Flash, agent cá nhân Gemini Spark (beta), mô hình video Gemini Omni và một "world model" mang tên Omni, cùng tính năng Daily Brief và giao diện mới cho ứng dụng Gemini.</p>
-      <p class="why"><b>Vì sao đáng chú ý:</b> Google đẩy mạnh hướng "agent + world model" để cạnh tranh trực tiếp với ChatGPT và Claude trên cả tốc độ lẫn khả năng hành động.</p>
-      <span class="tag">techcrunch.com</span>
-    </div>
+    <article class="card">
+      <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://file.cdn.minimax.io/public/11649e5b-3f76-477e-a73d-2abc4882211c.png" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=minimax.io&sz=128';this.classList.add('thumb-fallback')">
+      <div class="body">
+        <a class="title" href="https://www.minimax.io/blog/minimax-m3" target="_blank" rel="noopener">MiniMax M3: Frontier Coding, 1M Context, Native Multimodality — All in One Model</a>
+        <p class="sum">MiniMax phát hành M3 (1/6), mô hình open-weight đầu tiên kết hợp coding cấp frontier, cửa sổ ngữ cảnh 1 triệu token và đa phương thức gốc (ảnh/video, thậm chí điều khiển máy tính), dẫn đầu SWE-Bench Pro mã nguồn mở ở mức 59,0%.</p>
+        <p class="why">💡 Vì sao đáng chú ý: Một mô hình mở của Trung Quốc đang trực tiếp thách thức các mô hình đóng hàng đầu ở cả coding, ngữ cảnh dài lẫn đa phương thức.</p>
+        <div class="row"><span class="tag">minimax.io</span><button class="readbtn" type="button">▶ Đọc</button></div>
+      </div>
+    </article>
 
-    <div class="card">
-      <a class="title" href="https://llm-stats.com/llm-updates" target="_blank" rel="noopener">DeepSeek V4-Pro makes 75% price cut permanent; Qwen 3.7-Max preview</a>
-      <p class="sum">DeepSeek biến mức giảm giá 75% thành vĩnh viễn ($0.435/$0.87 mỗi 1M token), trở thành lựa chọn giá/hiệu năng dẫn đầu cho workload coding khối lượng lớn; Alibaba cũng tung bản preview Qwen 3.7-Max.</p>
-      <p class="why"><b>Vì sao đáng chú ý:</b> Cuộc đua giá từ các lab Trung Quốc đang ép biên lợi nhuận toàn ngành và mở rộng khả năng tiếp cận mô hình mạnh cho nhà phát triển.</p>
-      <span class="tag">llm-stats.com</span>
-    </div>
+    <article class="card">
+      <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://www.google.com/s2/favicons?domain=openai.com&sz=128" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=openai.com&sz=128';this.classList.add('thumb-fallback')">
+      <div class="body">
+        <a class="title" href="https://openai.com/index/advancing-voice-intelligence-with-new-models-in-the-api/" target="_blank" rel="noopener">Advancing voice intelligence with new models in the API</a>
+        <p class="sum">OpenAI giới thiệu ba mô hình giọng nói thời gian thực: GPT-Realtime-2 (suy luận cỡ GPT-5, ngữ cảnh mở rộng lên 128K token), GPT-Realtime-Translate (dịch nói trực tiếp 70+ ngôn ngữ đầu vào) và GPT-Realtime-Whisper (phiên âm streaming độ trễ thấp).</p>
+        <p class="why">💡 Vì sao đáng chú ý: Đẩy giao tiếp giọng nói từ "hỏi-đáp" sang trợ lý có thể nghe, suy luận, dịch và hành động ngay trong cuộc hội thoại.</p>
+        <div class="row"><span class="tag">openai.com</span><button class="readbtn" type="button">▶ Đọc</button></div>
+      </div>
+    </article>
 
-    <div class="card">
-      <a class="title" href="https://www.promptquorum.com/local-llms/top-open-source-models-ollama" target="_blank" rel="noopener">Open-weight wave: Kimi K2.6, Qwen 3.6, GLM-5.1 lead local LLMs</a>
-      <p class="sum">Cộng đồng local LLM hội tụ quanh Kimi K2.6 (MoE, giấy phép MIT chỉnh sửa, coding hàng đầu, SWE-Bench Pro 58.6 ngang GPT-5.5), Qwen 3.6 27B (77.2% SWE-bench, Apache 2.0, chạy được 24GB) và GLM-5.1.</p>
-      <p class="why"><b>Vì sao đáng chú ý:</b> Mô hình open-weight đang thu hẹp khoảng cách với mô hình đóng ở coding, cho phép chạy frontier-class ngay trên phần cứng tiêu dùng.</p>
-      <span class="tag">promptquorum.com</span>
-    </div>
+    <article class="card">
+      <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=128" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=arxiv.org&sz=128';this.classList.add('thumb-fallback')">
+      <div class="body">
+        <a class="title" href="https://arxiv.org/abs/2603.00729" target="_blank" rel="noopener">Qwen3-Coder-Next Technical Report</a>
+        <p class="sum">Alibaba công bố Qwen3-Coder-Next (3/6) — mô hình coding mở mới được đánh giá có hiệu suất trên mỗi tham số hoạt động tốt nhất nhóm open-weight, đặc biệt phù hợp cho các tác vụ agentic nhiều bước.</p>
+        <p class="why">💡 Vì sao đáng chú ý: Hướng tới hiệu quả tính toán cao cho agent coding — chạy nhẹ hơn mà vẫn cạnh tranh ở các benchmark lập trình.</p>
+        <div class="row"><span class="tag">arxiv.org</span><button class="readbtn" type="button">▶ Đọc</button></div>
+      </div>
+    </article>
+
+    <article class="card">
+      <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/gemini-3.1_pro_meta_dark.width-1300.png" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=blog.google&sz=128';this.classList.add('thumb-fallback')">
+      <div class="body">
+        <a class="title" href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-pro/" target="_blank" rel="noopener">Gemini 3.1 Pro: A smarter model for your most complex tasks</a>
+        <p class="sum">Gemini 3.1 Pro của Google dẫn đầu 13/16 benchmark được đánh giá (77,1% ARC-AGI-2, 80,6% SWE-Bench Verified, 94,3% GPQA Diamond); Gemini 3.5 Pro được công bố tại Google I/O 2026 với mục tiêu ra mắt rộng rãi trong tháng 6.</p>
+        <p class="why">💡 Vì sao đáng chú ý: Google tiếp tục thu hẹp khoảng cách với các mô hình hàng đầu, gộp các use case "Ultra" vào dòng Pro mới.</p>
+        <div class="row"><span class="tag">blog.google</span><button class="readbtn" type="button">▶ Đọc</button></div>
+      </div>
+    </article>
   </section>
 
-  <!-- SECTION 2 -->
-  <section>
-    <h2 class="sec">🛠️ Công cụ &amp; Framework</h2>
+  <section class="sec">
+    <h2>🛠️ Công cụ & Framework</h2>
 
-    <div class="card">
-      <a class="title" href="https://www.neowin.net/news/microsoft-unveils-mai-thinking-1-reasoning-and-mai-code-1-coding-models/" target="_blank" rel="noopener">MAI-Code-1-Flash rolls out to all GitHub Copilot plans</a>
-      <p class="sum">Mô hình coding 5B tham số MAI-Code-1-Flash của Microsoft, được quảng bá "siêu hiệu quả về inference", đã có mặt trong GitHub Copilot và VS Code, mở cho tất cả gói Copilot ngay trong ngày ra mắt.</p>
-      <p class="why"><b>Vì sao đáng chú ý:</b> Đưa mô hình nội bộ giá rẻ vào công cụ dev phổ biến nhất, định hình lại kinh tế của AI coding assistant.</p>
-      <span class="tag">neowin.net</span>
-    </div>
+    <article class="card">
+      <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://www.google.com/s2/favicons?domain=buildmvpfast.com&sz=128" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=buildmvpfast.com&sz=128';this.classList.add('thumb-fallback')">
+      <div class="body">
+        <a class="title" href="https://www.buildmvpfast.com/blog/best-open-source-ai-projects-github-2026" target="_blank" rel="noopener">OpenClaw surges past 210,000 GitHub stars</a>
+        <p class="sum">OpenClaw trở thành hiện tượng mã nguồn mở năm 2026, vượt 210.000 sao — một agent "privacy-first" tự host kết nối hơn 50 ứng dụng mà không cần gọi API bên ngoài.</p>
+        <p class="why">💡 Vì sao đáng chú ý: Phản ánh nhu cầu mạnh về agent tự host, kiểm soát dữ liệu — đối trọng với các nền tảng agent đám mây.</p>
+        <div class="row"><span class="tag">buildmvpfast.com</span><button class="readbtn" type="button">▶ Đọc</button></div>
+      </div>
+    </article>
 
-    <div class="card">
-      <a class="title" href="https://dev.to/anmolbaranwal/open-source-toolkit-for-building-ai-agents-in-2026-55h1" target="_blank" rel="noopener">Code-first agent runtimes: Hugging Face smolagents &amp; the MCP layer</a>
-      <p class="sum">Xu hướng framework agent dịch chuyển sang "code-first, tối giản abstraction": smolagents của Hugging Face nén logic routing còn ~1.000 dòng Python, cho mô hình tự viết và chạy code trong sandbox. MCP trở thành lớp nền chung cho Claude Agent SDK, LangGraph và các runtime khác.</p>
-      <p class="why"><b>Vì sao đáng chú ý:</b> MCP đang trở thành "giao thức chung" giúp công cụ chạy được trên mọi mô hình/nền tảng, giảm khóa nhà cung cấp.</p>
-      <span class="tag">dev.to</span>
-    </div>
+    <article class="card">
+      <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://www.google.com/s2/favicons?domain=ossinsight.io&sz=128" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=ossinsight.io&sz=128';this.classList.add('thumb-fallback')">
+      <div class="body">
+        <a class="title" href="https://ossinsight.io/trending/ai" target="_blank" rel="noopener">Visual agent builders dominate GitHub trending (Langflow, Dify, Flowise)</a>
+        <p class="sum">Ba trong số năm repo AI top hiện nay là các trình dựng agent trực quan: Langflow (146k sao), Dify (136k) và Flowise (51k), cho phép tạo và triển khai agent với rất ít code.</p>
+        <p class="why">💡 Vì sao đáng chú ý: Xu hướng "no-code/low-code" đang dân chủ hóa việc xây dựng AI agent, lặp lại đúng kịch bản từng xảy ra với phát triển web.</p>
+        <div class="row"><span class="tag">ossinsight.io</span><button class="readbtn" type="button">▶ Đọc</button></div>
+      </div>
+    </article>
 
-    <div class="card">
-      <a class="title" href="https://blog.google/innovation-and-ai/sundar-pichai-io-2026/" target="_blank" rel="noopener">OpenAI, Kakao and ElevenLabs adopt Google's SynthID watermarking</a>
-      <p class="sum">Google công bố OpenAI, Kakao và ElevenLabs cùng áp dụng SynthID — công nghệ watermark cho nội dung do AI tạo ra — như một chuẩn nhận diện chung.</p>
-      <p class="why"><b>Vì sao đáng chú ý:</b> Bước hiếm hoi các đối thủ hợp tác về tiêu chuẩn provenance, trong bối cảnh áp lực pháp lý về nội dung AI ngày càng tăng.</p>
-      <span class="tag">blog.google</span>
-    </div>
-
-    <div class="card">
-      <a class="title" href="https://blog.youtube/news-and-events/improving-ai-labels-viewers-creators/" target="_blank" rel="noopener">YouTube to automatically label AI-generated videos</a>
-      <p class="sum">YouTube sẽ tự động gắn nhãn video do AI tạo ra để minh bạch hơn với người xem và nhà sáng tạo — bài viết đạt hơn 1.300 điểm trên Hacker News.</p>
-      <p class="why"><b>Vì sao đáng chú ý:</b> Một trong những động thái dán nhãn AI quy mô lớn nhất ở cấp nền tảng, ảnh hưởng trực tiếp tới hệ sinh thái nội dung số.</p>
-      <span class="tag">blog.youtube</span>
-    </div>
+    <article class="card">
+      <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://www.google.com/s2/favicons?domain=github.com&sz=128" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=github.com&sz=128';this.classList.add('thumb-fallback')">
+      <div class="body">
+        <a class="title" href="https://dev.to/anmolbaranwal/open-source-toolkit-for-building-ai-agents-in-2026-55h1" target="_blank" rel="noopener">Open-source toolkit for building AI agents in 2026 (n8n, Ollama, CrewAI)</a>
+        <p class="sum">Bộ công cụ agent mã nguồn mở năm 2026 hội tụ quanh n8n (tự động hóa workflow, 400+ tích hợp), Ollama (chạy LLM cục bộ) và các framework đa-agent như CrewAI, AutoGen, MetaGPT.</p>
+        <p class="why">💡 Vì sao đáng chú ý: Hệ sinh thái hạ tầng agent mã nguồn mở đã đủ chín để dựng pipeline thật, kết hợp orchestration + chạy mô hình cục bộ.</p>
+        <div class="row"><span class="tag">dev.to</span><button class="readbtn" type="button">▶ Đọc</button></div>
+      </div>
+    </article>
   </section>
 
-  <!-- SECTION 3 -->
-  <section>
-    <h2 class="sec">🔬 Nghiên cứu &amp; Kỹ thuật mới</h2>
+  <section class="sec">
+    <h2>🔬 Nghiên cứu & Kỹ thuật mới</h2>
 
-    <div class="card">
-      <a class="title" href="https://arxiv.org/pdf/2603.07915" target="_blank" rel="noopener">Ares: Adaptive Reasoning Effort Selection for Efficient LLM Agents</a>
-      <p class="sum">Bài báo đề xuất cơ chế chọn "mức nỗ lực suy luận" thích ứng cho agent: tự điều chỉnh độ sâu reasoning theo độ khó của tác vụ thay vì luôn dùng tối đa, giúp tiết kiệm token và tăng hiệu quả.</p>
-      <p class="why"><b>Vì sao đáng chú ý:</b> Trùng hướng với "effort controls" của Opus 4.8 — tối ưu chi phí suy luận đang trở thành trục cạnh tranh chính của agent.</p>
-      <span class="tag">arxiv.org</span>
-    </div>
+    <article class="card">
+      <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=128" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=arxiv.org&sz=128';this.classList.add('thumb-fallback')">
+      <div class="body">
+        <a class="title" href="https://arxiv.org/abs/2603.07915" target="_blank" rel="noopener">Ares: Adaptive Reasoning Effort Selection for Efficient LLM Agents</a>
+        <p class="sum">Bài báo đề xuất bỏ cấu hình suy luận tĩnh, thay vào đó tự động chọn mức "nỗ lực suy luận" phù hợp cho từng bước của agent, giảm chi phí suy luận mà vẫn giữ hiệu năng.</p>
+        <p class="why">💡 Vì sao đáng chú ý: Suy luận thích ứng theo từng bước là hướng tối ưu chi phí then chốt khi agent ngày càng dài và phức tạp.</p>
+        <div class="row"><span class="tag">arxiv.org</span><button class="readbtn" type="button">▶ Đọc</button></div>
+      </div>
+    </article>
 
-    <div class="card">
-      <a class="title" href="https://huggingface.co/papers/2601.12538" target="_blank" rel="noopener">Tool-DC: divide-and-conquer for tool-calling in long context</a>
-      <p class="sum">Để cải thiện tool-calling khi mô hình phải chọn giữa rất nhiều công cụ trong ngữ cảnh dài, Tool-DC dùng cách tiếp cận chia-để-trị giúp mô hình thử, kiểm tra và thử lại việc chọn công cụ hiệu quả hơn.</p>
-      <p class="why"><b>Vì sao đáng chú ý:</b> Tool-calling chính xác trong long-context là nút thắt cốt lõi để agent đáng tin cậy ở quy mô thực tế.</p>
-      <span class="tag">huggingface.co</span>
-    </div>
+    <article class="card">
+      <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=128" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=arxiv.org&sz=128';this.classList.add('thumb-fallback')">
+      <div class="body">
+        <a class="title" href="https://arxiv.org/abs/2510.22977" target="_blank" rel="noopener">The Reasoning Trap: How Enhancing LLM Reasoning Amplifies Tool Hallucination</a>
+        <p class="sum">Nghiên cứu chỉ ra rằng các phương pháp tăng cường khả năng suy luận hiện nay vô tình khuếch đại hiện tượng "ảo giác công cụ" (gọi tool sai/không tồn tại), đòi hỏi mục tiêu huấn luyện tối ưu đồng thời cả năng lực lẫn độ tin cậy.</p>
+        <p class="why">💡 Vì sao đáng chú ý: Cảnh báo một đánh đổi quan trọng: suy luận mạnh hơn chưa chắc an toàn hơn khi agent dùng tool.</p>
+        <div class="row"><span class="tag">arxiv.org</span><button class="readbtn" type="button">▶ Đọc</button></div>
+      </div>
+    </article>
 
-    <div class="card">
-      <a class="title" href="https://arxiv.org/pdf/2602.24173" target="_blank" rel="noopener">LemmaBench: A Live, Research-Level Benchmark for LLM Mathematics</a>
-      <p class="sum">LemmaBench là benchmark "sống" đánh giá năng lực toán cấp nghiên cứu của LLM: trích các bổ đề từ arXiv và viết lại thành mệnh đề độc lập, liên tục cập nhật theo kết quả mới nhất để chống nhiễm dữ liệu (contamination).</p>
-      <p class="why"><b>Vì sao đáng chú ý:</b> Giải quyết vấn nạn benchmark bị "học thuộc", cung cấp thước đo trung thực hơn cho suy luận toán học.</p>
-      <span class="tag">arxiv.org</span>
-    </div>
-
-    <div class="card">
-      <a class="title" href="https://www.analyticsvidhya.com/blog/2026/05/top-llm-research-papers-2026/" target="_blank" rel="noopener">Where you put info in the prompt changes the answer</a>
-      <p class="sum">Nghiên cứu trên 50 mô hình frontier suốt ba năm phát hiện: vị trí đặt một thông tin trong prompt ảnh hưởng tới câu trả lời mạnh hơn nhiều so với hiểu biết trước đây — prompt position là yếu tố then chốt bị xem nhẹ.</p>
-      <p class="why"><b>Vì sao đáng chú ý:</b> Có hệ quả trực tiếp tới prompt engineering và độ ổn định/đánh giá mô hình trong sản phẩm thực tế.</p>
-      <span class="tag">analyticsvidhya.com</span>
-    </div>
+    <article class="card">
+      <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=128" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=arxiv.org&sz=128';this.classList.add('thumb-fallback')">
+      <div class="body">
+        <a class="title" href="https://arxiv.org/abs/2505.01441" target="_blank" rel="noopener">Agentic Reasoning and Tool Integration for LLMs via Reinforcement Learning (ARTIST)</a>
+        <p class="sum">ARTIST là mô hình huấn luyện để LLM tự học chiến lược sử dụng công cụ bên ngoài và tương tác với môi trường phức tạp thông qua học tăng cường, thay vì dựa vào prompt cố định.</p>
+        <p class="why">💡 Vì sao đáng chú ý: RL cho việc dùng tool là nền tảng để agent tự cải thiện cách suy luận-hành động, hướng tới các agent "tự nâng cấp".</p>
+        <div class="row"><span class="tag">arxiv.org</span><button class="readbtn" type="button">▶ Đọc</button></div>
+      </div>
+    </article>
   </section>
 
-  <!-- SECTION 4 -->
-  <section>
-    <h2 class="sec">📈 Hot trend &amp; Thảo luận cộng đồng</h2>
+  <section class="sec">
+    <h2>📈 Hot trend & Thảo luận cộng đồng</h2>
 
-    <div class="card">
-      <a class="title" href="https://orchidfiles.com/im-tired-of-ai-generated-answers/" target="_blank" rel="noopener">I'm Tired of Talking to AI</a>
-      <p class="sum">Bài viết bày tỏ sự mệt mỏi với các câu trả lời do AI tạo ra leo lên top Hacker News với hơn 2.000 điểm và gần 1.000 bình luận — phản ánh làn sóng "mỏi AI" đang lan rộng.</p>
-      <p class="why"><b>Vì sao đáng chú ý:</b> Tín hiệu rõ về sự bão hòa và phản ứng ngược của người dùng đối với nội dung AI tràn lan.</p>
-      <span class="tag">Hacker News · 2.010 pts</span>
-    </div>
+    <article class="card">
+      <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://bloximages.chicago2.vip.townnews.com/dailycal.org/content/tncms/assets/v3/editorial/c/40/c40f11cf-dfb0-4973-a534-c64044165f16/6a206ddeec122.image.jpg?crop=1793%2C941%2C0%2C106&amp;resize=1200%2C630&amp;order=crop%2Cresize" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=dailycal.org&sz=128';this.classList.add('thumb-fallback')">
+      <div class="body">
+        <a class="title" href="https://www.dailycal.org/news/campus/academics/failing-grades-soar-as-professors-see-greater-ai-usage-dwindling-math-skills-in-uc-berkeley/article_16fad0bf-02cb-4b8c-8d88-888ffd9f8608.html" target="_blank" rel="noopener">Failing grades soar as professors see greater AI usage, dwindling math skills at UC Berkeley</a>
+        <p class="sum">Giảng viên UC Berkeley báo cáo điểm trượt tăng vọt cùng kỹ năng toán suy giảm khi sinh viên ngành CS dùng AI nhiều hơn — bài viết gây bão trên Hacker News (786 điểm, 748 bình luận).</p>
+        <p class="why">💡 Vì sao đáng chú ý: Tâm điểm tranh luận về tác động của AI tới năng lực học thuật và cách dạy-học cần thay đổi.</p>
+        <div class="row"><span class="tag">dailycal.org</span><button class="readbtn" type="button">▶ Đọc</button></div>
+      </div>
+    </article>
 
-    <div class="card">
-      <a class="title" href="https://www.reddit.com/r/technology/comments/1turxho/bernie_sanders_pushes_for_50_public_ownership_of/" target="_blank" rel="noopener">Bernie Sanders pushes for 50% public ownership of American AI companies</a>
-      <p class="sum">Đề xuất lập "quỹ tài sản chủ quyền AI" nắm 50% cổ phần các hãng AI lớn của Bernie Sanders gây bão r/technology với gần 45.000 upvote và hơn 2.300 bình luận.</p>
-      <p class="why"><b>Vì sao đáng chú ý:</b> Phản ánh tranh luận chính trị nóng về phân phối lợi ích và quyền lực khổng lồ mà ngành AI đang tích tụ.</p>
-      <span class="tag">r/technology · 44.7k</span>
-    </div>
+    <article class="card">
+      <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://www.google.com/s2/favicons?domain=reddit.com&sz=128" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=reddit.com&sz=128';this.classList.add('thumb-fallback')">
+      <div class="body">
+        <a class="title" href="https://www.reddit.com/r/technology/comments/1traeoj/ronny_chiengs_fck_ai_speech_met_with_cheers_from/" target="_blank" rel="noopener">Ronny Chieng's 'F*ck AI' Speech Met With Cheers From Harvard Graduates</a>
+        <p class="sum">Bài phát biểu chống AI của Ronny Chieng tại lễ tốt nghiệp Harvard — "AI rồi sẽ chỉ khiến người tầm thường thêm ngớ ngẩn" — lan truyền mạnh, hơn 54.000 upvote trên r/technology.</p>
+        <p class="why">💡 Vì sao đáng chú ý: Cho thấy làn sóng hoài nghi/mệt mỏi với AI đang lớn dần trong dư luận đại chúng.</p>
+        <div class="row"><span class="tag">reddit.com</span><button class="readbtn" type="button">▶ Đọc</button></div>
+      </div>
+    </article>
 
-    <div class="card">
-      <a class="title" href="https://www.reddit.com/r/technology/comments/1traeoj/ronny_chiengs_fck_ai_speech_met_with_cheers_from/" target="_blank" rel="noopener">Ronny Chieng's 'F*ck AI' Speech Met With Cheers From Harvard Graduates</a>
-      <p class="sum">Phát biểu chống AI của Ronny Chieng tại lễ tốt nghiệp Harvard ("AI chỉ khiến người tầm thường thêm ngu dốt") được tân cử nhân hưởng ứng, viral với hơn 54.000 upvote.</p>
-      <p class="why"><b>Vì sao đáng chú ý:</b> Tâm lý hoài nghi AI lan vào cả văn hóa đại chúng và môi trường học thuật tinh hoa, không chỉ giới công nghệ.</p>
-      <span class="tag">r/technology · 54k</span>
-    </div>
+    <article class="card">
+      <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://www.google.com/s2/favicons?domain=reddit.com&sz=128" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=reddit.com&sz=128';this.classList.add('thumb-fallback')">
+      <div class="body">
+        <a class="title" href="https://www.reddit.com/r/technology/comments/1turxho/bernie_sanders_pushes_for_50_public_ownership_of/" target="_blank" rel="noopener">Bernie Sanders pushes for 50% public ownership of American AI companies</a>
+        <p class="sum">Thượng nghị sĩ Bernie Sanders đề xuất một quỹ tài sản chủ quyền về AI, nắm cổ phần trực tiếp tới 50% tại các công ty AI lớn nhất Mỹ — chủ đề bùng nổ với hơn 45.000 upvote.</p>
+        <p class="why">💡 Vì sao đáng chú ý: Đặt lên bàn nghị sự câu hỏi ai nên hưởng lợi từ giá trị khổng lồ mà AI tạo ra.</p>
+        <div class="row"><span class="tag">reddit.com</span><button class="readbtn" type="button">▶ Đọc</button></div>
+      </div>
+    </article>
 
-    <div class="card">
-      <a class="title" href="https://github.com/RsyncProject/rsync/issues/929" target="_blank" rel="noopener">"Please Do Not Vibe Fuck Up This Software" (rsync issue)</a>
-      <p class="sum">Một issue trên repo rsync phản đối việc dùng "vibe coding" bằng AI vào phần mềm nền tảng bùng nổ với hơn 2.800 reaction, châm ngòi tranh cãi gay gắt về AI + C và chất lượng đóng góp code do AI sinh.</p>
-      <p class="why"><b>Vì sao đáng chú ý:</b> Cho thấy căng thẳng thực tế giữa maintainer mã nguồn mở và làn sóng đóng góp/issue do AI tạo ra.</p>
-      <span class="tag">GitHub · 2.848 react</span>
-    </div>
+    <article class="card">
+      <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/en_HowThisWasMade_WithPopout.max-1440x810.png" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=blog.youtube&sz=128';this.classList.add('thumb-fallback')">
+      <div class="body">
+        <a class="title" href="https://blog.youtube/news-and-events/improving-ai-labels-viewers-creators/" target="_blank" rel="noopener">YouTube to automatically label AI-generated videos</a>
+        <p class="sum">YouTube công bố sẽ tự động gắn nhãn cho video do AI tạo, nhằm tăng minh bạch cho người xem — bài đăng nhận hơn 1.300 điểm trên Hacker News.</p>
+        <p class="why">💡 Vì sao đáng chú ý: Một bước đi lớn của nền tảng nội dung lớn nhất thế giới trước làn sóng nội dung tổng hợp bằng AI.</p>
+        <div class="row"><span class="tag">blog.youtube</span><button class="readbtn" type="button">▶ Đọc</button></div>
+      </div>
+    </article>
 
-    <div class="card">
-      <a class="title" href="https://www.pcgamer.com/hardware/duckduckgos-ai-free-search-saw-nearly-28-percent-more-visits-in-the-week-following-googles-insistence-that-people-love-ai-mode/" target="_blank" rel="noopener">DuckDuckGo search saw 28% more visits after Google pushed AI mode</a>
-      <p class="sum">Lượt truy cập DuckDuckGo (vốn quảng bá tìm kiếm "không AI") tăng gần 28% ngay tuần sau khi Google khẳng định người dùng "yêu thích" AI mode.</p>
-      <p class="why"><b>Vì sao đáng chú ý:</b> Bằng chứng định lượng cho thấy một bộ phận người dùng đang chủ động tìm trải nghiệm tìm kiếm không bị AI chi phối.</p>
-      <span class="tag">Hacker News · 1.074 pts</span>
-    </div>
+    <article class="card">
+      <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://www.google.com/s2/favicons?domain=nolanlawson.com&sz=128" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=nolanlawson.com&sz=128';this.classList.add('thumb-fallback')">
+      <div class="body">
+        <a class="title" href="https://nolanlawson.com/2026/05/25/using-ai-to-write-better-code-more-slowly/" target="_blank" rel="noopener">Using AI to write better code more slowly</a>
+        <p class="sum">Bài blog lập luận rằng dùng AI có chủ đích để viết code tốt hơn — dù chậm hơn — đáng giá hơn là tăng tốc mù quáng; gây tranh luận sôi nổi trên Hacker News (1.256 điểm).</p>
+        <p class="why">💡 Vì sao đáng chú ý: Phản biện trực diện với niềm tin "AI = nhanh hơn", khơi lại câu hỏi về chất lượng và sự hiểu biết khi lập trình cùng AI.</p>
+        <div class="row"><span class="tag">nolanlawson.com</span><button class="readbtn" type="button">▶ Đọc</button></div>
+      </div>
+    </article>
   </section>
 
-  <!-- SECTION 5 -->
-  <section>
-    <h2 class="sec">🏢 Ngành &amp; Kinh doanh</h2>
+  <section class="sec">
+    <h2>🏢 Ngành & Kinh doanh</h2>
 
-    <div class="card">
-      <a class="title" href="https://www.cnbc.com/2026/06/01/anthropic-ipo-s1-prospectus.html" target="_blank" rel="noopener">Anthropic confidentially files for IPO at $965 billion valuation</a>
-      <p class="sum">Anthropic nộp hồ sơ S-1 bí mật lên SEC (1/6) sau vòng gọi vốn 65 tỷ USD ở định giá 965 tỷ USD — lần đầu vượt OpenAI để thành startup giá trị nhất thế giới; run-rate doanh thu đã lên ~47 tỷ USD.</p>
-      <p class="why"><b>Vì sao đáng chú ý:</b> Có thể là thương vụ IPO định hình cả thập kỷ AI, phép thử lớn cho định giá thị trường công của làn sóng AI.</p>
-      <span class="tag">cnbc.com</span>
-    </div>
+    <article class="card">
+      <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://techcrunch.com/wp-content/uploads/2025/09/Screenshot-2025-09-02-at-12.22.37PM.png?resize=1200,671" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=techcrunch.com&sz=128';this.classList.add('thumb-fallback')">
+      <div class="body">
+        <a class="title" href="https://techcrunch.com/2026/05/28/anthropic-raises-65-billion-nears-1t-valuation-ahead-of-ipo/" target="_blank" rel="noopener">Anthropic raises $65 billion, nears $1T valuation ahead of IPO</a>
+        <p class="sum">Anthropic chốt vòng Series H 65 tỷ USD ở định giá hậu đầu tư 965 tỷ USD — lần đầu vượt OpenAI — và đã nộp hồ sơ IPO mật, có thể lên sàn ngay trong mùa thu này.</p>
+        <p class="why">💡 Vì sao đáng chú ý: Cột mốc lịch sử về vốn của một startup AI, định hình lại cuộc đua giành vị thế dẫn đầu ngành.</p>
+        <div class="row"><span class="tag">techcrunch.com</span><button class="readbtn" type="button">▶ Đọc</button></div>
+      </div>
+    </article>
 
-    <div class="card">
-      <a class="title" href="https://www.cnbc.com/2026/06/02/microsoft-unveils-new-ai-models-lessen-reliance-on-openai-lower-costs.html" target="_blank" rel="noopener">Microsoft unveils in-house AI models to lessen reliance on OpenAI</a>
-      <p class="sum">Microsoft tung loạt mô hình MAI tự phát triển nhằm giảm phụ thuộc vào OpenAI và hạ chi phí cho nhà phát triển, đánh dấu sự chuyển dịch chiến lược của hãng khỏi đối tác lâu năm.</p>
-      <p class="why"><b>Vì sao đáng chú ý:</b> Tái cấu trúc quan hệ Microsoft–OpenAI và làm nóng cuộc đua mô hình coding với Google, Anthropic.</p>
-      <span class="tag">cnbc.com</span>
-    </div>
+    <article class="card">
+      <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://www.anthropic.com/api/opengraph-illustration?name=Object%20Growth&amp;backgroundColor=coral" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=anthropic.com&sz=128';this.classList.add('thumb-fallback')">
+      <div class="body">
+        <a class="title" href="https://www.anthropic.com/news/series-h" target="_blank" rel="noopener">Anthropic raises $65B in Series H funding at $965B post-money valuation</a>
+        <p class="sum">Vòng Series H do Altimeter, Dragoneer, Greenoaks, Sequoia, Capital Group, Coatue... đồng dẫn dắt. Anthropic dự kiến doanh thu quý II đạt 10,9 tỷ USD, hơn gấp đôi quý trước và hướng tới quý có lãi đầu tiên.</p>
+        <p class="why">💡 Vì sao đáng chú ý: Cho thấy quy mô doanh thu của các lab AI hàng đầu đang tăng theo cấp số nhân, củng cố câu chuyện trước IPO.</p>
+        <div class="row"><span class="tag">anthropic.com</span><button class="readbtn" type="button">▶ Đọc</button></div>
+      </div>
+    </article>
 
-    <div class="card">
-      <a class="title" href="https://www.cnbc.com/2026/06/01/microsoft-and-google-take-on-anthropic-and-openai-in-ai-coding-models.html" target="_blank" rel="noopener">Microsoft and Google take on Anthropic and OpenAI in AI coding models</a>
-      <p class="sum">Công cụ coding trở thành mặt trận trọng điểm: Google (sau I/O tháng 5) và Microsoft (tại Build) dồn lực ra sản phẩm để bắt kịp Anthropic và OpenAI trong thị trường AI coding đang bùng nổ.</p>
-      <p class="why"><b>Vì sao đáng chú ý:</b> Claude Code đã đưa Anthropic vượt lên; bốn ông lớn nay trực tiếp đối đầu ở phân khúc sinh lời và bám dính người dùng nhất.</p>
-      <span class="tag">cnbc.com</span>
-    </div>
-
-    <div class="card">
-      <a class="title" href="https://nvidianews.nvidia.com/news/openai-and-nvidia-announce-strategic-partnership-to-deploy-10gw-of-nvidia-systems" target="_blank" rel="noopener">OpenAI &amp; NVIDIA partnership: 10GW of systems, up to $100B investment</a>
-      <p class="sum">OpenAI và NVIDIA triển khai quan hệ chiến lược deploy ít nhất 10 gigawatt hệ thống NVIDIA; gigawatt đầu tiên trên nền tảng Vera Rubin dự kiến đi vào hoạt động nửa cuối 2026, với cam kết đầu tư tới 100 tỷ USD theo tiến độ.</p>
-      <p class="why"><b>Vì sao đáng chú ý:</b> Quy mô hạ tầng tính toán khổng lồ này là xương sống cho thế hệ mô hình kế tiếp và phản ánh "cơn khát" compute của ngành.</p>
-      <span class="tag">nvidianews.nvidia.com</span>
-    </div>
+    <article class="card">
+      <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://www.google.com/s2/favicons?domain=cnbc.com&sz=128" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=cnbc.com&sz=128';this.classList.add('thumb-fallback')">
+      <div class="body">
+        <a class="title" href="https://www.cnbc.com/2026/06/01/microsoft-and-google-take-on-anthropic-and-openai-in-ai-coding-models.html" target="_blank" rel="noopener">Microsoft and Google take on Anthropic and OpenAI in AI coding models</a>
+        <p class="sum">Công cụ coding trở thành mặt trận nóng: Microsoft và Google dồn lực để bám đuổi Anthropic và OpenAI, với Microsoft chuẩn bị loạt công bố liên quan đến coding tại hội nghị Build.</p>
+        <p class="why">💡 Vì sao đáng chú ý: Mảng AI coding đang là "chiến trường" sinh lợi nhất, kéo cả bốn ông lớn vào cuộc cạnh tranh trực diện.</p>
+        <div class="row"><span class="tag">cnbc.com</span><button class="readbtn" type="button">▶ Đọc</button></div>
+      </div>
+    </article>
   </section>
 
   <footer>
-    <span>Cập nhật: 05/06/2026 · Tổng cộng <b>22</b> mục tin</span>
-    <span class="badge">Nguồn signal: WebSearch + last30days</span>
+    <div>🕘 Tạo lúc: 05/06/2026 · <b>16 tin</b> · <b>6 ảnh bìa</b> nhúng từ nguồn (còn lại dùng favicon).</div>
+    <div>Nguồn signal: WebSearch + last30days</div>
+    <div style="margin-top:10px; color:#6f7d90; font-size:12px">
+      ✅ All agents reported back!<br>
+      ├─ 🟠 Reddit: 6 threads · 233,442 upvotes · 12,111 comments<br>
+      ├─ 🟡 HN: 6 stories · 8,268 points · 4,637 comments<br>
+      ├─ 🐙 GitHub: 2 items · 8,691 reactions · 1,044 comments<br>
+      └─ 🗣️ Top voices: r/technology, r/mildlyinfuriating, r/mildlyinteresting
+    </div>
   </footer>
+
 </div>
+
 <script>
 (function(){
   var synth=window.speechSynthesis; if(!synth) return;
@@ -286,19 +332,13 @@
     var warn=document.getElementById('voiceWarn'); if(warn) warn.style.display=vi.length?'none':'inline';
     sel.onchange=function(){var m=all.filter(function(v){return v.name===sel.value;});chosen=m[0]||null;};
   }
-  var css='.tts-bar{position:sticky;top:0;z-index:50;display:flex;gap:8px;align-items:center;justify-content:center;padding:10px;background:rgba(13,20,36,.93);backdrop-filter:blur(6px);border-bottom:1px solid #2a3347;flex-wrap:wrap}.tts-btn{background:#6366f1;color:#fff;border:0;border-radius:8px;padding:7px 14px;font-size:13px;font-weight:600;cursor:pointer}.tts-btn.stop{background:#334155}.tts-note{color:#94a3b8;font-size:12px}.tts-note select{background:#1b2230;color:#e6e9ef;border:1px solid #334155;border-radius:6px;padding:3px 6px;font-size:12px;max-width:240px}.tts-warn{color:#fca5a5;font-size:12px;display:none}.readbtn{margin-left:8px;background:#1e293b;color:#a5b4fc;border:1px solid #334155;border-radius:6px;padding:2px 10px;font-size:12px;cursor:pointer}.readbtn:hover{background:#334155}';
-  function init(){
-    var st=document.createElement('style');st.textContent=css;document.head.appendChild(st);
-    var bar=document.createElement('div');bar.className='tts-bar';
-    bar.innerHTML='<button class="tts-btn" id="readAll">🔊 Đọc tóm tắt</button><button class="tts-btn stop" id="readStop">⏹ Dừng</button><label class="tts-note">Giọng: <select id="voicePick"></select></label><span id="voiceWarn" class="tts-warn">⚠ Máy chưa có giọng tiếng Việt — mở bằng Edge hoặc cài giọng VN</span>';
-    document.body.insertBefore(bar,document.body.firstChild);
-    document.getElementById('readAll').addEventListener('click',function(){speak(allText());});
-    document.getElementById('readStop').addEventListener('click',stop);
-    document.querySelectorAll('.card').forEach(function(c){var sm=c.querySelector('.sum');if(!sm)return;var b=document.createElement('button');b.className='readbtn';b.type='button';b.textContent='▶ Đọc';b.addEventListener('click',function(){speak(sm.innerText);});var a=c.querySelector('.tag');if(a&&a.parentNode){a.parentNode.appendChild(b);}else{sm.parentNode.appendChild(b);}});
+  document.addEventListener('DOMContentLoaded',function(){
+    var a=document.getElementById('readAll');if(a)a.addEventListener('click',function(){speak(allText());});
+    var s=document.getElementById('readStop');if(s)s.addEventListener('click',stop);
+    document.querySelectorAll('.card .readbtn').forEach(function(b){b.addEventListener('click',function(){var c=b.closest('.card');var sm=c?c.querySelector('.sum'):null;speak(sm?sm.innerText:'');});});
     refresh(); setTimeout(refresh,400);
     if(typeof synth.onvoiceschanged!=='undefined'){synth.onvoiceschanged=refresh;}
-  }
-  if(document.readyState!=='loading') init(); else document.addEventListener('DOMContentLoaded',init);
+  });
 })();
 </script>
 </body>
