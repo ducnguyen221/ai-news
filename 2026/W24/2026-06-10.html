@@ -48,7 +48,7 @@ footer{margin-top:36px;padding-top:14px;border-top:1px solid var(--bd);color:var
 </header>
 
 <div class="tts-bar"><button id="readAll" class="tts-btn">🔊 Đọc tóm tắt (giọng Việt)</button><button id="readStop" class="tts-btn">⏹ Dừng</button><span class="tts-note">Giọng OmniVoice đã thu sẵn</span></div>
-<div class="hot-video"><div class="hot-label">🔥 Tin nóng nhất hôm nay (video + lồng tiếng)</div><video controls preload="metadata" style="width:100%;max-width:720px;border-radius:12px" src="../../video/2026-06-10.mp4"></video></div>
+<div class="hot-video"><div class="hot-label">🔥 Tin nóng nhất hôm nay (video + lồng tiếng)</div><video controls preload="metadata" style="width:100%;max-width:720px;border-radius:12px" src="https://github.com/ducnguyen221/ai-news/releases/download/media-2026-06-10/2026-06-10.mp4"></video></div>
 
 <div class="tldr">
 <h3>📌 Tổng quan hôm nay</h3>
@@ -196,7 +196,7 @@ footer{margin-top:36px;padding-top:14px;border-top:1px solid var(--bd);color:var
 </div>
 <script>
 (function(){
-  var base="../../audio/2026-06-10/";
+  var base="https://github.com/ducnguyen221/ai-news/releases/download/media-2026-06-10/";
   var cur=null;
   function play(src){ if(cur){cur.pause();} cur=new Audio(src); cur.play().catch(function(){}); }
   function stop(){ if(cur){cur.pause(); cur=null;} }

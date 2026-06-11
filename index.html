@@ -1,24 +1,63 @@
 <!DOCTYPE html>
 <html lang="vi"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Daily AI News - Archive</title>
+<meta name="description" content="AI News – bản tin AI hàng tuần bằng tiếng Việt: mô hình mới, công cụ, nghiên cứu, hot trend. Tổng hợp tự động bởi AI agent, có audio giọng Việt và video recap.">
+<title>AI News – Bản tin AI hàng tuần</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <style>
+:root{color-scheme:dark;--bg:#04060a;--ink:#f8fafc;--muted:#94a3b8;--line:rgba(255,255,255,.08);
+--cyan:#00f0ff;--cyan-glow:rgba(0,240,255,.4);--purple:#bd00ff;--panel:rgba(8,12,21,.55);
+--radius:12px;--font-body:'Be Vietnam Pro',system-ui,sans-serif;--font-heading:'Plus Jakarta Sans',system-ui,sans-serif;--font-mono:'JetBrains Mono',Consolas,monospace}
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:#0f1117;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;line-height:1.6;padding:0 0 60px}
-.header{background:linear-gradient(135deg,#1a1f35 0,#0f1117 60%);border-bottom:1px solid #2a3347;padding:44px 24px 32px;text-align:center}
-.header .label{font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#6366f1;margin-bottom:10px}
-.header h1{font-size:2rem;font-weight:800;color:#fff;letter-spacing:-.02em}
-.header p{color:#94a3b8;margin-top:8px;font-size:.92rem}
-.container{max-width:760px;margin:0 auto;padding:0 20px}
-.latest{display:block;background:#1e2534;border:1px solid #3d4f6e;border-left:4px solid #6366f1;border-radius:10px;padding:16px 20px;margin-top:32px;color:#c7d2fe;font-weight:600}
-.latest:hover{border-color:#6366f1}
-.year{font-size:1.2rem;font-weight:800;color:#fff;margin:36px 0 6px}
-.week{font-size:.8rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#6366f1;margin:18px 0 8px;border-bottom:1px solid #2a3347;padding-bottom:6px}
-.row{display:block;padding:9px 12px;border-radius:8px;color:#cbd5e1;border:1px solid transparent}
-.row:hover{background:#161b27;border-color:#2a3347}
-a{text-decoration:none;color:inherit}
-.footer{margin-top:48px;text-align:center;font-size:.8rem;color:#4b5563}
+html{background:var(--bg);scroll-behavior:smooth}
+body{min-height:100vh;color:var(--ink);font-family:var(--font-body);line-height:1.65;letter-spacing:-.01em;
+background:radial-gradient(circle at 10% 20%,rgba(0,240,255,.05),transparent 40rem),
+radial-gradient(circle at 90% 10%,rgba(189,0,255,.04),transparent 35rem),
+linear-gradient(180deg,#04060a 0%,#080d1a 60%,#030508 100%);padding-bottom:40px}
+body::before{position:fixed;inset:0;z-index:0;pointer-events:none;content:"";
+background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+background-size:60px 60px;mask-image:radial-gradient(circle at 50% 40%,rgba(0,0,0,.8),rgba(0,0,0,.12));opacity:.7}
+a{color:inherit;text-decoration:none}
+.site{position:relative;z-index:1;width:min(1100px,calc(100% - 40px));margin:0 auto}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 20px;margin-top:14px;
+border:1px solid var(--line);border-radius:var(--radius);background:rgba(4,6,10,.7);backdrop-filter:blur(20px)}
+.brand{display:inline-flex;align-items:center;gap:13px}
+.brand-name{font-family:var(--font-heading);font-size:1.25rem;font-weight:800;letter-spacing:-.02em}
+.brand-name b{color:var(--cyan);font-weight:800}
+.brand-sub{display:block;color:var(--muted);font-size:.68rem;font-family:var(--font-mono);letter-spacing:.12em;text-transform:uppercase}
+.nav a{padding:8px 14px;border:1px solid var(--line);border-radius:8px;font-size:.85rem;color:var(--muted);transition:.2s}
+.nav a:hover{color:var(--cyan);border-color:var(--cyan-glow)}
+.hero{margin-top:34px}
+.label{font-family:var(--font-mono);font-size:.72rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan);margin-bottom:10px}
+.hero-card{display:block;position:relative;border:1px solid rgba(0,240,255,.25);border-radius:16px;padding:26px 28px;
+background:linear-gradient(135deg,rgba(0,240,255,.07),rgba(189,0,255,.05) 60%,var(--panel));transition:.25s}
+.hero-card:hover{border-color:var(--cyan);box-shadow:0 0 34px rgba(0,240,255,.12);transform:translateY(-2px)}
+.hero-week{font-family:var(--font-mono);color:var(--cyan);font-size:.85rem;letter-spacing:.08em}
+.hero-title{font-family:var(--font-heading);font-size:1.65rem;font-weight:800;margin:6px 0 4px}
+.hero-range{color:var(--muted);font-size:.92rem}
+.hero-tldr{color:#cbd5e1;font-size:.95rem;margin-top:12px;max-width:62rem}
+.badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.badge{font-family:var(--font-mono);font-size:.74rem;color:#a5f3fc;border:1px solid rgba(0,240,255,.25);border-radius:99px;padding:3px 11px;background:rgba(0,240,255,.06)}
+.cta{display:inline-block;margin-top:16px;font-weight:700;color:var(--cyan);font-size:.95rem}
+.stats{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+.stat{flex:1;min-width:140px;border:1px solid var(--line);border-radius:var(--radius);background:var(--panel);padding:14px 18px;text-align:center}
+.stat .n{font-family:var(--font-heading);font-size:1.5rem;font-weight:800;color:var(--cyan)}
+.stat .t{color:var(--muted);font-size:.78rem;font-family:var(--font-mono);letter-spacing:.08em;text-transform:uppercase}
+.archive{margin-top:40px}
+.year-h{font-family:var(--font-heading);font-size:1.15rem;font-weight:800;color:#fff;margin:26px 0 12px;display:flex;align-items:center;gap:10px}
+.year-h::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+.card{display:block;border:1px solid var(--line);border-radius:var(--radius);background:var(--panel);padding:16px 18px;transition:.2s}
+.card:hover{border-color:var(--cyan-glow);box-shadow:0 0 22px rgba(0,240,255,.08);transform:translateY(-2px)}
+.card .wk{font-family:var(--font-mono);font-size:.76rem;color:var(--purple);letter-spacing:.08em}
+.card .d{font-family:var(--font-heading);font-weight:700;font-size:1.02rem;margin-top:3px}
+.card .dow{color:var(--muted);font-size:.82rem;text-transform:capitalize}
+.card .badges{margin-top:10px}
+.footer{margin-top:52px;text-align:center;font-size:.8rem;color:#4b5563}
+.footer a{color:#818cf8}
+@media (max-width:640px){.topbar{flex-wrap:wrap}.hero-title{font-size:1.3rem}}
 </style></head><body>
-<div class="header"><div class="label">Daily AI News</div><h1>Daily AI News</h1><p>Archived by ISO year / week</p></div>
-<div class="container"><a class="latest" href="2026/W24/2026-06-10.html">Latest: 2026-06-10 (W24)</a><div class="year">2026</div><div class="week">Week 24</div><a class="row" href="2026/W24/2026-06-10.html">2026-06-10 - Thứ Tư</a><a class="row" href="2026/W24/2026-06-09.html">2026-06-09 - Thứ Ba</a><a class="row" href="2026/W24/2026-06-08.html">2026-06-08 - Thứ Hai</a><div class="week">Week 23</div><a class="row" href="2026/W23/2026-06-07.html">2026-06-07 - Chủ Nhật</a><a class="row" href="2026/W23/2026-06-06.html">2026-06-06 - Thứ Bảy</a><a class="row" href="2026/W23/2026-06-05.html">2026-06-05 - Thứ Sáu</a><div class="footer">Auto-generated &middot; Daily AI News &middot; <a href="https://github.com/ducnguyen221/daily-ai-news" style="color:#818cf8">GitHub</a></div>
+<div class="site"><header class="topbar"><span class="brand"><svg width="44" height="44" viewBox="0 0 48 48" aria-hidden="true"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#00f0ff"/><stop offset="1" stop-color="#bd00ff"/></linearGradient></defs><rect x="2" y="2" width="44" height="44" rx="11" fill="none" stroke="url(#lg)" stroke-width="2.5"/><path d="M14 32 L19 16 L24 32 M16.5 26 h5" stroke="#00f0ff" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M29 32 V16 l8 16 V16" stroke="#bd00ff" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span><span class="brand-name">AI <b>News</b></span><span class="brand-sub">Bản tin AI hàng tuần · AI-generated</span></span></span><nav class="nav"><a href="https://ducnguyen.vn" target="_blank" rel="noopener">ducnguyen.vn ↗</a></nav></header><section class="hero"><div class="label">▍Số mới nhất</div><a class="hero-card" href="2026/W24/2026-06-12.html"><div class="hero-week">2026 · TUẦN 24</div><div class="hero-title">Bản tin AI tuần 24</div><div class="hero-range">📅 08/06 – 14/06 · phát hành 12/06/2026</div><p class="hero-tldr">📋 Tổng quan tuần này Tuần W24 là một trong những tuần dày đặc tin lớn nhất năm: Apple gây chấn động tại WWDC 2026 khi công bố Siri mới chạy trên mô hình Gemini 1,2 nghìn tỷ tham số của Google và hệ thống Extensions cho…</p><div class="badges"><span class="badge">🗞 19 tin</span><span class="badge">🎧 audio</span><span class="badge">🎬 video</span></div><span class="cta">Đọc bản tin →</span></a><div class="stats"><div class="stat"><div class="n">7</div><div class="t">bản tin</div></div><div class="stat"><div class="n">125</div><div class="t">tin đã tổng hợp</div></div><div class="stat"><div class="n">W24</div><div class="t">tuần mới nhất</div></div></div></section><section class="archive"><div class="label">▍Lưu trữ</div><div class="year-h">2026</div><div class="grid"><a class="card" href="2026/W24/2026-06-12.html"><div class="wk">TUẦN 24 · 08/06 – 14/06</div><div class="d">12/06/2026</div><div class="dow">Thứ Sáu</div><div class="badges"><span class="badge">🗞 19 tin</span><span class="badge">🎧 audio</span><span class="badge">🎬 video</span></div></a><a class="card" href="2026/W24/2026-06-10.html"><div class="wk">TUẦN 24 · 08/06 – 14/06</div><div class="d">10/06/2026</div><div class="dow">Thứ Tư</div><div class="badges"><span class="badge">🗞 11 tin</span><span class="badge">🎧 audio</span><span class="badge">🎬 video</span></div></a><a class="card" href="2026/W24/2026-06-09.html"><div class="wk">TUẦN 24 · 08/06 – 14/06</div><div class="d">09/06/2026</div><div class="dow">Thứ Ba</div><div class="badges"><span class="badge">🗞 21 tin</span></div></a><a class="card" href="2026/W24/2026-06-08.html"><div class="wk">TUẦN 24 · 08/06 – 14/06</div><div class="d">08/06/2026</div><div class="dow">Thứ Hai</div><div class="badges"><span class="badge">🗞 17 tin</span></div></a><a class="card" href="2026/W23/2026-06-07.html"><div class="wk">TUẦN 23 · 01/06 – 07/06</div><div class="d">07/06/2026</div><div class="dow">Chủ Nhật</div><div class="badges"><span class="badge">🗞 22 tin</span></div></a><a class="card" href="2026/W23/2026-06-06.html"><div class="wk">TUẦN 23 · 01/06 – 07/06</div><div class="d">06/06/2026</div><div class="dow">Thứ Bảy</div><div class="badges"><span class="badge">🗞 17 tin</span></div></a><a class="card" href="2026/W23/2026-06-05.html"><div class="wk">TUẦN 23 · 01/06 – 07/06</div><div class="d">05/06/2026</div><div class="dow">Thứ Sáu</div><div class="badges"><span class="badge">🗞 18 tin</span></div></a></div></section><div class="footer">Tổng hợp tự động bởi AI agent (Claude + OmniVoice + HyperFrames) · <a href="https://github.com/ducnguyen221/ai-news">GitHub</a> · <a href="https://ducnguyen.vn">ducnguyen.vn</a></div>
 </div></body></html>
