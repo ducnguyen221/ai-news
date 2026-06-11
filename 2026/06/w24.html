@@ -74,7 +74,7 @@ footer a{color:var(--accent);text-decoration:none}
 .fact{font-family:Consolas,monospace;font-size:.76rem;color:#a5f3fc;border:1px solid rgba(0,240,255,.25);border-radius:8px;padding:4px 10px;background:rgba(0,240,255,.05)}
 .fact b{color:#67e8f9;margin-right:6px;font-weight:700}
 .deep{margin-top:12px;color:#b6c2d6;font-size:.92rem;line-height:1.7}
-.brand-mark{width:42px;height:42px;display:grid;place-items:center;flex:0 0 auto;border:1px solid rgba(0,240,255,.4);border-radius:50%;background:radial-gradient(circle,rgba(0,240,255,.22),rgba(189,0,255,.06) 55%,rgba(4,6,10,.95) 78%);box-shadow:0 0 18px rgba(0,240,255,.35);animation:brandPulse 3.2s ease-in-out infinite;transition:transform .45s cubic-bezier(.175,.885,.32,1.275)}.brand:hover .brand-mark{transform:rotate(180deg) scale(1.06);border-color:#00f0ff}@keyframes brandPulse{0%,100%{box-shadow:0 0 10px rgba(0,240,255,.22)}50%{box-shadow:0 0 26px rgba(0,240,255,.55)}}.hdr-row2{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding-top:8px}.hdr-row2 .toc{flex:1 1 auto;padding:0}.vdiv{width:1px;height:22px;background:rgba(255,255,255,.16);flex:0 0 auto}@media (max-width:767px){.hdr-row2 .toc,.vdiv{display:none}.hdr{padding:8px 12px}.brand-mark{width:36px;height:36px}.brand-sub{font-size:.7rem}.hdr-ctrls{width:100%}.hdr-ctrls .ctrl{flex:1 1 auto;text-align:center;justify-content:center}.hdr-ctrls .ctrl-ic{flex:0 0 44px}}.hot-video{margin-top:26px}.hot-video .hot-label{font-weight:700;margin-bottom:12px}</style>
+.brand-mark{width:42px;height:42px;display:grid;place-items:center;flex:0 0 auto;border:1px solid rgba(0,240,255,.4);border-radius:50%;background:radial-gradient(circle,rgba(0,240,255,.22),rgba(189,0,255,.06) 55%,rgba(4,6,10,.95) 78%);box-shadow:0 0 18px rgba(0,240,255,.35);animation:brandPulse 3.2s ease-in-out infinite;transition:transform .45s cubic-bezier(.175,.885,.32,1.275)}.brand:hover .brand-mark{transform:rotate(180deg) scale(1.06);border-color:#00f0ff}@keyframes brandPulse{0%,100%{box-shadow:0 0 10px rgba(0,240,255,.22)}50%{box-shadow:0 0 26px rgba(0,240,255,.55)}}.hdr-row2{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding-top:8px}.hdr-row2 .toc{flex:1 1 auto;padding:0}.vdiv{width:1px;height:22px;background:rgba(255,255,255,.16);flex:0 0 auto}@media (max-width:767px){.hdr-row2 .toc,.vdiv{display:none}.hdr{padding:8px 12px}.brand-mark{width:36px;height:36px}.brand-sub{font-size:.7rem}.hdr-ctrls{width:100%}.hdr-ctrls .ctrl{flex:1 1 auto;text-align:center;justify-content:center}.hdr-ctrls .ctrl-ic{flex:0 0 44px}}.hot-video{margin-top:26px}.hot-video .hot-label{font-weight:700;margin-bottom:12px}.navpop-btn{display:none}.navpop{display:none}.hdr-row2{position:relative}.navpop-t:checked ~ .navpop{display:flex;flex-direction:column;gap:2px;position:absolute;top:calc(100% + 10px);left:0;right:0;z-index:80;background:rgba(8,12,20,.98);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:8px;backdrop-filter:blur(16px);box-shadow:0 18px 50px rgba(0,0,0,.5)}.navpop a{padding:11px 14px;border-radius:8px;color:#cbd5e1;text-decoration:none;font-size:.95rem}.navpop a:hover,.navpop a:active{background:rgba(0,240,255,.1);color:#00f0ff}.navpop-t:checked ~ .hdr-ctrls .navpop-btn{color:#04060a;background:linear-gradient(90deg,#00f0ff,#39ff7a);border-color:transparent}@media (max-width:767px){.navpop-btn{display:grid}.btxt{display:none}.hdr-ctrls .ctrl{flex:1 1 auto}}</style>
 </head>
 <body>
 <div class="wrap">
@@ -83,13 +83,16 @@ footer a{color:var(--accent);text-decoration:none}
 <a class="brand" href="../../index.html" title="Về trang chính AI News"><span class="brand-mark"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00f0ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h12v14H6a2 2 0 0 1-2-2z"/><path d="M16 8h2.5a1.5 1.5 0 0 1 1.5 1.5V17a2 2 0 0 1-2 2"/><path d="M7 9h6M7 12.5h6M7 16h4"/></svg></span><span class="brand-name">AI <b>News</b></span><span class="brand-sub">Tuần W24 · 08/06 - 14/06/2026</span></a>
 </div>
 <div class="hdr-row2">
+<input type="checkbox" id="navpop" class="navpop-t" hidden>
 <nav class="toc"><a href="#recap">🎬 Recap</a><a href="#sec-1">🚀 Mô hình</a><a href="#sec-2">🛠️ Công cụ</a><a href="#sec-3">🔬 Nghiên cứu</a><a href="#sec-4">📈 Trend</a><a href="#sec-5">🏢 Ngành</a></nav>
 <span class="vdiv"></span>
 <div class="hdr-ctrls">
-<button id="readAll" class="ctrl ctrl-acc">🔊 Đọc tóm tắt</button>
-<button id="readStop" class="ctrl">⏹ Dừng</button>
+<button id="readAll" class="ctrl ctrl-acc">🔊<span class="btxt"> Đọc tóm tắt</span></button>
+<button id="readStop" class="ctrl">⏹<span class="btxt"> Dừng</span></button>
+<label class="ctrl ctrl-ic navpop-btn" for="navpop" title="Mục lục">☰</label>
 <a class="ctrl ctrl-ic" href="../../index.html" title="Quay lại AI News">←</a>
 </div>
+<div class="navpop"><a href="#recap" onclick="document.getElementById('navpop').checked=false">🎬 Recap</a><a href="#sec-1" onclick="document.getElementById('navpop').checked=false">🚀 Mô hình</a><a href="#sec-2" onclick="document.getElementById('navpop').checked=false">🛠️ Công cụ</a><a href="#sec-3" onclick="document.getElementById('navpop').checked=false">🔬 Nghiên cứu</a><a href="#sec-4" onclick="document.getElementById('navpop').checked=false">📈 Trend</a><a href="#sec-5" onclick="document.getElementById('navpop').checked=false">🏢 Ngành</a></div>
 </div>
 </header>
 
