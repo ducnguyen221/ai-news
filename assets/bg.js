@@ -58,35 +58,6 @@
   function draw() {
     ctx.clearRect(0, 0, width, height);
 
-    var gridGap = 60;
-    var gridColor = "rgba(255, 255, 255, 0.015)";
-    var gridInteractiveColor = "rgba(0, 240, 255, 0.04)";
-    var startX = Math.floor(window.scrollY * 0.1) % gridGap;
-    ctx.lineWidth = 0.5;
-    for (var x = -startX; x < width; x += gridGap) {
-      for (var y = 0; y < height; y += gridGap) {
-        var drawX = x, drawY = y;
-        if (pointer.active && !reduceMotion) {
-          var gdx = pointer.x - x, gdy = pointer.y - y;
-          var gdist = Math.hypot(gdx, gdy);
-          if (gdist < 180) {
-            var force = (1 - gdist / 180) * 12;
-            drawX -= (gdx / gdist) * force;
-            drawY -= (gdy / gdist) * force;
-          }
-        }
-        ctx.strokeStyle =
-          pointer.active && Math.hypot(pointer.x - x, pointer.y - y) < 180
-            ? gridInteractiveColor : gridColor;
-        ctx.beginPath();
-        ctx.moveTo(drawX - 3, drawY);
-        ctx.lineTo(drawX + 3, drawY);
-        ctx.moveTo(drawX, drawY - 3);
-        ctx.lineTo(drawX, drawY + 3);
-        ctx.stroke();
-      }
-    }
-
     particles.forEach(function (p) {
       if (!reduceMotion) {
         p.x += p.vx; p.y += p.vy;
